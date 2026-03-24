@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1 Custom Objects
+    a(href='/update-cobj') Add to this table
+    table
+      thead
+        tr
+          th Name
+          th Make
+          th Model
+      tbody
+        each record in records
+          tr
+            td= car.properties.name
+            td= car.properties.make
+            td= car.properties.model
