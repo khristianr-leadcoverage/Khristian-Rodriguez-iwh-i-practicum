@@ -56,7 +56,7 @@ app.post('/update-cobj', async (req, res) => {
     };
 
     try { 
-        await axios.patch(updateCars, update, { headers } );
+        await axios.post(updateCars, update, { headers } );
         res.redirect('/');
     } catch(err) {
         console.error(err);
