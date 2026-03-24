@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -19,7 +20,10 @@ app.get('/', async (req, res) => {
         'Content-Type': 'application/json'
     }
     try {
-        const resp = await axios.get(cars, { headers });
+        const resp = await axios.get(cars, { 
+            headers,
+            params: { properties: 'name,make,model'}
+        });
         const data = resp.data.results;
         res.render('homepage', { title: 'Cars | HubSpot APIs', data });      
     } catch (error) {
